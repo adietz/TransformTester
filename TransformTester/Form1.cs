@@ -51,9 +51,9 @@ namespace TransformTester
 
                 textBox3.Text = FormatXml(outputstring.ToString());
             }
-            catch
+            catch (Exception ex)
             {
-                return;
+                textBox3.Text = "Exception Message: " + ex.Message;
             }
         }
 
@@ -93,6 +93,22 @@ namespace TransformTester
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void formXMLSourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = FormatXml(textBox1.Text);
+        }
+
+        private void formatTransformToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = FormatXml(textBox2.Text);
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+            transform();
         }
     }
 }
